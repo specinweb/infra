@@ -1,0 +1,6 @@
+[staging_servers]
+app ansible_host=35.189.200.141
+db ansible_host=35.195.220.139
+
+[all:vars]
+ansible_user=appuser
