@@ -9,7 +9,7 @@ resource "google_compute_firewall" "firewall_ssh" {
 }
 
 resource "google_compute_firewall" "firewall_puma" {
-  name    = "allow-puma-default"
+  name    = "reddit-app"
   network = "default"
   allow {
     protocol = "tcp"
@@ -20,7 +20,7 @@ resource "google_compute_firewall" "firewall_puma" {
 }
 
 resource "google_compute_firewall" "firewall_mongo" {
-  name    = "allow-mongo-default"
+  name    = "reddit-db"
   network = "default"
   allow {
     protocol = "tcp"

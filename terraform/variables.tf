@@ -16,11 +16,11 @@ variable private_key_path {
 }
 variable app_disk_image {
   description = "Disk image for reddit app"
-  default = "reddit-app-base"
+  default = "ubuntu-1604-xenial-v20200108"
 }
 variable db_disk_image {
   description = "Disk image for reddit db"
-  default = "reddit-db-base"
+  default = "ubuntu-1604-xenial-v20200108"
 }
 variable source_ranges {
   description = "Allowed IP addresses"

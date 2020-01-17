@@ -1,0 +1,2 @@
+deploy_user : appuser
+db_host: 35.205.56.15
