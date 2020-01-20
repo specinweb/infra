@@ -1,4 +1,13 @@
 ---
+- name: Run the equivalent of apt-get update
+  apt:
+    update_cache: yes
+  tags: ruby
+  
 - name: Install ruby and rubygems and required packages
-  apt: "name=ruby-full,ruby-bundler,build-essential state=present"
+  apt: "name={{ item }} state=present"
+  with_items:
+    - ruby-full
+    - ruby-bundler
+    - build-essential
   tags: ruby

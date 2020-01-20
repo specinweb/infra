@@ -1,30 +1,21 @@
-- name: Deploy application
+- name: Deploy App
   hosts: app
   become: true
 
   tasks:
-  - name: Install ruby bundler build-essential
-    apt:
-      name: "{{ packages }}"
-    vars:
-      packages:
-      - ruby-full
-      - ruby-bundler
-      - build-essential
-
   - name: Fetch the latest version of application code
     git:
       repo: 'https://github.com/specinweb/reddit.git'
-      dest: /home/appuser/reddit
+      dest: "/home/{{ deploy_user }}/reddit"
       version: monolith   # <-- Указываем нужную ветку
-    notify: reload puma
+    notify: restart puma
 
   - name: Bundle install
     bundler:
       state: present
-      chdir: /home/appuser/reddit # <-- В какой директории выполнить команду bundle
+      chdir: "/home/{{ deploy_user }}/reddit" # <-- В какой директории выполнить команду bundle
 
   handlers:
-  - name: reload puma
+  - name: restart puma
     become: true
     systemd: name=puma state=restarted

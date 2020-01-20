@@ -1,5 +1,4 @@
 ---
-# tasks file for app
 - name: Add unit file for Puma
   template:
     src: puma.service.j2
